@@ -57,10 +57,11 @@ install_version() {
 		fail "asdf-$TOOL_NAME supports release installs only"
 	fi
 
+	echo "* Installing $TOOL_NAME release $version..."
+
 	(
 		mkdir -p "$install_path"
 		cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
-
 		# TODO: Assert cloudcustodian executable exists.
 		local tool_cmd
 		tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
