@@ -3,8 +3,8 @@
 set -euo pipefail
 
 # TODO: Ensure this is the correct GitHub homepage where releases can be downloaded for cloudcustodian.
-GH_REPO="https://github.com/luizsfer/asdf-cloudcustodian"
-TOOL_NAME="cloudcustodian"
+GH_REPO="https://github.com/cloud-custodian/cloud-custodian"
+TOOL_NAME="cloud-custodian"
 TOOL_TEST="custodian --help"
 
 fail() {
@@ -42,7 +42,7 @@ download_release() {
 	filename="$2"
 
 	# TODO: Adapt the release URL convention for cloudcustodian
-	url="$GH_REPO/archive/v${version}.tar.gz"
+	url="$GH_REPO/archive/refs/tags/${version}.tar.gz"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename" -C - "$url" || fail "Could not download $url"
